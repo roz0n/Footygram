@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class FeedViewController: UICollectionViewController {
+class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -18,9 +18,7 @@ class FeedViewController: UICollectionViewController {
     // self.clearsSelectionOnViewWillAppear = false
     
     // Register cell classes
-    self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-    
-    // Do any additional setup after loading the view.
+    self.collectionView!.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.reuseId)
   }
   
   /*
@@ -47,11 +45,14 @@ class FeedViewController: UICollectionViewController {
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    cell.backgroundColor = .systemGray
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.reuseId, for: indexPath) as? FeedCollectionViewCell
     // Configure the cell
     
-    return cell
+    if let cell = cell {
+      return cell
+    } else {
+      fatalError("Unable to dequeue cell")
+    }
   }
   
   // MARK: UICollectionViewDelegate
@@ -84,5 +85,9 @@ class FeedViewController: UICollectionViewController {
    
    }
    */
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+  }
   
 }

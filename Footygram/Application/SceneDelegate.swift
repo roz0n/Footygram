@@ -59,20 +59,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
   
   func createRootViewController() -> some UIViewController {
+    let collectionLayout = UICollectionViewFlowLayout()
+    let feedViewController = FeedViewController(collectionViewLayout: collectionLayout)
     let feedImage = UIImage(systemName: "sportscourt.fill")
-    let layout = UICollectionViewFlowLayout()
-    let feedViewController = FeedViewController(collectionViewLayout: layout)
-    feedViewController.collectionView.backgroundColor = .systemPink
+    feedViewController.collectionView.backgroundColor = .systemBackground
     feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: feedImage, tag: 0)
     
     let favoritesViewController = FavoritesViewController()
-    favoritesViewController.view.backgroundColor = .systemBlue
-    favoritesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-    favoritesViewController.navigationItem.title = "Favorites"
+    let favoritesImage = UIImage(systemName: "line.horizontal.star.fill.line.horizontal")
+    favoritesViewController.tabBarItem = UITabBarItem(title: "Hall of Fame", image: favoritesImage, tag: 1)
+    favoritesViewController.navigationItem.title = "Hall of Fame"
     
     let navigationController = UINavigationController(rootViewController: favoritesViewController)
+    navigationController.navigationBar.prefersLargeTitles = true
+    
     let tabController = UITabBarController()
     tabController.viewControllers = [feedViewController, navigationController]
+    tabController.tabBar.tintColor = .systemGreen
     
     return tabController
   }

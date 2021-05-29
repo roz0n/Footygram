@@ -13,6 +13,8 @@
 		2397CB8A266241A30014F8BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2397CB88266241A30014F8BC /* LaunchScreen.storyboard */; };
 		2397CB93266245740014F8BC /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB92266245740014F8BC /* FeedViewController.swift */; };
 		2397CB952662458E0014F8BC /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB942662458E0014F8BC /* FavoritesViewController.swift */; };
+		2397CB99266249BF0014F8BC /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB98266249BF0014F8BC /* FeedCollectionViewCell.swift */; };
+		2397CB9C26624F370014F8BC /* FavoritesTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2397CB8B266241A30014F8BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2397CB92266245740014F8BC /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		2397CB942662458E0014F8BC /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		2397CB98266249BF0014F8BC /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				2397CB962662460A0014F8BC /* Application */,
+				2397CB97266249A10014F8BC /* Cells */,
 				2397CB91266245560014F8BC /* Controllers */,
+				2397CB9A26624F0E0014F8BC /* Views */,
 				2397CB86266241A30014F8BC /* Assets.xcassets */,
 				2397CB88266241A30014F8BC /* LaunchScreen.storyboard */,
 				2397CB8B266241A30014F8BC /* Info.plist */,
@@ -81,6 +87,22 @@
 				2397CB7F266241A00014F8BC /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		2397CB97266249A10014F8BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2397CB98266249BF0014F8BC /* FeedCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2397CB9A26624F0E0014F8BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +176,9 @@
 			files = (
 				2397CB7E266241A00014F8BC /* AppDelegate.swift in Sources */,
 				2397CB93266245740014F8BC /* FeedViewController.swift in Sources */,
+				2397CB99266249BF0014F8BC /* FeedCollectionViewCell.swift in Sources */,
 				2397CB952662458E0014F8BC /* FavoritesViewController.swift in Sources */,
+				2397CB9C26624F370014F8BC /* FavoritesTableHeaderView.swift in Sources */,
 				2397CB80266241A00014F8BC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
