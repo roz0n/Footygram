@@ -16,9 +16,10 @@ class FavoritesTableHeaderView: UIView {
     view.isUserInteractionEnabled = false
     view.textContainer.maximumNumberOfLines = 0
     view.textContainer.lineBreakMode = .byCharWrapping
-    view.text = "The greatest images of all time are stored here for peak nostalgic purposes. Tap on an image to interact with it further or save it to your camera roll."
+    view.text = "Your favorite all-time images are stored here for peak nostalgia. Tap an image to interact with it or save it to your camera roll."
     view.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-    view.textContainerInset = UIEdgeInsets(top: 20, left: 12, bottom: 20, right: 12)
+    view.textColor = .systemGray
+    view.textContainerInset = UIEdgeInsets(top: 20, left: 12, bottom: 20, right: 16)
     return view
   }()
   
