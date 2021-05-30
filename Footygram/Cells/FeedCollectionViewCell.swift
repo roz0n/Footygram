@@ -11,11 +11,27 @@ class FeedCollectionViewCell: UICollectionViewCell {
   
   static let reuseId = "FeedCollectionCell"
   
+  var cellImage: Data? {
+    didSet {
+      if let cellImage = cellImage {
+        imageContainer.image = UIImage(data: cellImage)
+      }
+    }
+  }
+  
+  let imageContainer: UIImageView = {
+    let view = UIImageView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.backgroundColor = .brown
+    view.contentMode = .center
+    return view
+  }()
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     
+    applyLayouts()
     configureContentView()
-    layoutContentView()
   }
   
   required init?(coder: NSCoder) {
@@ -28,13 +44,20 @@ class FeedCollectionViewCell: UICollectionViewCell {
     contentView.backgroundColor = .systemGray5
     contentView.layer.cornerRadius = 16
     contentView.layer.masksToBounds = true
+    contentView.layer.borderWidth = 2
+    contentView.layer.borderColor = UIColor.systemGray2.withAlphaComponent(0.2).cgColor
   }
   
 }
 
 // MARK: - Layout
 
-extension FeedCollectionViewCell {
+fileprivate extension FeedCollectionViewCell {
+  
+  func applyLayouts() {
+    layoutContentView()
+    layoutImageContainer()
+  }
   
   func layoutContentView() {
     let padding: CGFloat = 14
@@ -45,6 +68,17 @@ extension FeedCollectionViewCell {
       contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
       contentView.topAnchor.constraint(equalTo: topAnchor, constant: padding / 3),
       contentView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding / 3)
+    ])
+  }
+  
+  func layoutImageContainer() {
+    contentView.addSubview(imageContainer)
+    
+    NSLayoutConstraint.activate([
+      imageContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+      imageContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+      imageContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
+      imageContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
     ])
   }
   

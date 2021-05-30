@@ -11,6 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   
+  let dataManager = DataManager()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -19,6 +21,7 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     // Register cell classes
     self.collectionView!.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.reuseId)
+    print(dataManager.getImage(id: 1)?.count)
   }
   
   /*
@@ -49,6 +52,8 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     // Configure the cell
     
     if let cell = cell {
+      print("Cell: \(indexPath.row)")
+      cell.cellImage = dataManager.getImage(id: (indexPath.row + 1))
       return cell
     } else {
       fatalError("Unable to dequeue cell")

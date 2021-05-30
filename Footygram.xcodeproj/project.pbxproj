@@ -15,6 +15,7 @@
 		2397CB952662458E0014F8BC /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB942662458E0014F8BC /* FavoritesViewController.swift */; };
 		2397CB99266249BF0014F8BC /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB98266249BF0014F8BC /* FeedCollectionViewCell.swift */; };
 		2397CB9C26624F370014F8BC /* FavoritesTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */; };
+		2397CBA0266373460014F8BC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB9F266373460014F8BC /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2397CB942662458E0014F8BC /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2397CB98266249BF0014F8BC /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableHeaderView.swift; sourceTree = "<group>"; };
+		2397CB9F266373460014F8BC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		2397CB7C266241A00014F8BC /* Footygram */ = {
 			isa = PBXGroup;
 			children = (
+				2397CB9E2663733A0014F8BC /* Managers */,
 				2397CB962662460A0014F8BC /* Application */,
 				2397CB97266249A10014F8BC /* Cells */,
 				2397CB91266245560014F8BC /* Controllers */,
@@ -103,6 +106,14 @@
 				2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2397CB9E2663733A0014F8BC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2397CB9F266373460014F8BC /* DataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				2397CB7E266241A00014F8BC /* AppDelegate.swift in Sources */,
 				2397CB93266245740014F8BC /* FeedViewController.swift in Sources */,
 				2397CB99266249BF0014F8BC /* FeedCollectionViewCell.swift in Sources */,
+				2397CBA0266373460014F8BC /* DataManager.swift in Sources */,
 				2397CB952662458E0014F8BC /* FavoritesViewController.swift in Sources */,
 				2397CB9C26624F370014F8BC /* FavoritesTableHeaderView.swift in Sources */,
 				2397CB80266241A00014F8BC /* SceneDelegate.swift in Sources */,
