@@ -11,6 +11,8 @@ class FeedCollectionViewCell: UICollectionViewCell {
   
   static let reuseId = "FeedCollectionCell"
   
+  let favoriteButton = FeedCellButton()
+  
   var cellImage: Data? = nil {
     didSet {
       if let cellImage = cellImage {
@@ -81,6 +83,7 @@ fileprivate extension FeedCollectionViewCell {
   func applyLayouts() {
     layoutContentView()
     layoutImageContainer()
+    layoutFavoritesButton()
   }
   
   func layoutContentView() {
@@ -103,6 +106,17 @@ fileprivate extension FeedCollectionViewCell {
       imageContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
       imageContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
       imageContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+    ])
+  }
+  
+  func layoutFavoritesButton() {
+    contentView.addSubview(favoriteButton)
+    
+    NSLayoutConstraint.activate([
+      favoriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14),
+      favoriteButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -14),
+      favoriteButton.heightAnchor.constraint(equalToConstant: 50),
+      favoriteButton.widthAnchor.constraint(equalToConstant: 50)
     ])
   }
   
