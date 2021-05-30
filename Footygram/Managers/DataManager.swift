@@ -10,6 +10,7 @@ import Foundation
 class DataManager {
   
   let endpoint = "https://www.notenough.science/vintage-football-photos/"
+  let totalImageCount = 199
   
   func getImage(id: Int) -> Data? {
     guard let url = URL(string: "\(endpoint)/\(String(id)).jpeg") else { return nil }

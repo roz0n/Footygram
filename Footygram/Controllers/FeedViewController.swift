@@ -21,7 +21,6 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     // Register cell classes
     self.collectionView!.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.reuseId)
-    print(dataManager.getImage(id: 1)?.count)
   }
   
   /*
@@ -49,14 +48,23 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewCell.reuseId, for: indexPath) as? FeedCollectionViewCell
-    // Configure the cell
+    let imageId = indexPath.row + 1
     
     if let cell = cell {
-      print("Cell: \(indexPath.row)")
-      cell.cellImage = dataManager.getImage(id: (indexPath.row + 1))
+      if imageId <= dataManager.totalImageCount {
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+          let data = self?.dataManager.getImage(id: imageId)
+          
+          DispatchQueue.main.async {
+            cell.cellImage = data
+          }
+        }
+      }
+      
+      print("Dequeuing cell: \(indexPath.row)")
       return cell
     } else {
-      fatalError("Unable to dequeue cell")
+      fatalError("Unable to dequeue Feed cell")
     }
   }
   
