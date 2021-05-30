@@ -62,7 +62,6 @@ class FeedCollectionViewCell: UICollectionViewCell {
     contentView.backgroundColor = .systemGray5
     contentView.layer.cornerRadius = 16
     contentView.layer.masksToBounds = true
-    contentView.layer.borderWidth = 2
     contentView.layer.borderColor = UIColor.systemGray2.withAlphaComponent(0.2).cgColor
   }
   

@@ -7,20 +7,21 @@
 
 import UIKit
 
-class FeedCollectionHeaderView: UICollectionReusableView {
+class FeedCollectionHeaderView: UIView {
   
   static let reuseId = "FeedHeaderView"
-  static let estimatedHeight: CGFloat = 100
+  static let estimatedHeight: CGFloat = 125
   
-  let contentView: UIView = {
-    let view = UIImageView()
+  let contentView: UIVisualEffectView = {
+    let effect = UIBlurEffect(style: .systemThinMaterial)
+    let view = UIVisualEffectView(effect: effect)
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = .systemGreen
     return view
   }()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    translatesAutoresizingMaskIntoConstraints = false
     layoutContentView()
   }
   

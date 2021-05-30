@@ -9,22 +9,31 @@ import UIKit
 
 class FeedViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   
+  let headerView = FeedCollectionHeaderView()
+  let refreshControl = UIRefreshControl()
   let dataManager = DataManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     configureCollectionView()
+    configureRefreshControl()
+    
+    layoutHeader()
   }
   
   // MARK: - Configurations
   
   fileprivate func configureCollectionView() {
-    let layout = self.collectionViewLayout as? UICollectionViewFlowLayout
-    layout?.sectionHeadersPinToVisibleBounds = true
-    
-    collectionView.contentInsetAdjustmentBehavior = .never
+    collectionView.contentInset = UIEdgeInsets(top: (FeedCollectionHeaderView.estimatedHeight - 14 * 3), left: 0, bottom: 0, right: 0)
+    collectionView.showsVerticalScrollIndicator = false
     collectionView.register(FeedCollectionViewCell.self, forCellWithReuseIdentifier: FeedCollectionViewCell.reuseId)
     collectionView.register(FeedCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: FeedCollectionHeaderView.reuseId)
+  }
+  
+  fileprivate func configureRefreshControl() {
+    refreshControl.tintColor = .green
+    collectionView.addSubview(refreshControl)
   }
   
   // MARK: - UICollectionViewDataSource
@@ -60,20 +69,27 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
   }
   
-  override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: FeedCollectionHeaderView.reuseId, for: indexPath) as? FeedCollectionHeaderView
-    return header!
-  }
-  
   // MARK: - UICollectionViewDelegateFlowLayout
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
   }
   
+}
+
+// MARK: - Layout
+
+fileprivate extension FeedViewController {
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    return CGSize(width: self.collectionView.bounds.size.width, height: FeedCollectionHeaderView.estimatedHeight)
+  func layoutHeader() {
+    view.addSubview(headerView)
+    
+    NSLayoutConstraint.activate([
+      headerView.topAnchor.constraint(equalTo: view.topAnchor),
+      headerView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+      headerView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+      headerView.heightAnchor.constraint(equalToConstant: FeedCollectionHeaderView.estimatedHeight)
+    ])
   }
   
 }
