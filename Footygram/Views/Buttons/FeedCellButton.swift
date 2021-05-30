@@ -70,7 +70,7 @@ class FeedCellButton: UIView {
   
   func handleFavorite() {
     if isFavorite {
-      buttonContainer.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.7)
+      buttonContainer.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.9)
       
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
         self?.favoriteIcon.transform = CGAffineTransform(scaleX: 5, y: 5)
@@ -87,6 +87,10 @@ class FeedCellButton: UIView {
       }
       
       favoriteIcon.tintColor = FeedCellButton.inactiveColor
+    }
+    
+    if #available(iOS 10.0, *) {
+      UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
     }
   }
   
