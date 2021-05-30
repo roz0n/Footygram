@@ -16,6 +16,7 @@
 		2397CB99266249BF0014F8BC /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB98266249BF0014F8BC /* FeedCollectionViewCell.swift */; };
 		2397CB9C26624F370014F8BC /* FavoritesTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */; };
 		2397CBA0266373460014F8BC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CB9F266373460014F8BC /* DataManager.swift */; };
+		2397CBA226637F7A0014F8BC /* FeedCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2397CBA126637F7A0014F8BC /* FeedCollectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2397CB98266249BF0014F8BC /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableHeaderView.swift; sourceTree = "<group>"; };
 		2397CB9F266373460014F8BC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		2397CBA126637F7A0014F8BC /* FeedCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				2397CB9B26624F370014F8BC /* FavoritesTableHeaderView.swift */,
+				2397CBA126637F7A0014F8BC /* FeedCollectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				2397CB99266249BF0014F8BC /* FeedCollectionViewCell.swift in Sources */,
 				2397CBA0266373460014F8BC /* DataManager.swift in Sources */,
 				2397CB952662458E0014F8BC /* FavoritesViewController.swift in Sources */,
+				2397CBA226637F7A0014F8BC /* FeedCollectionHeaderView.swift in Sources */,
 				2397CB9C26624F370014F8BC /* FavoritesTableHeaderView.swift in Sources */,
 				2397CB80266241A00014F8BC /* SceneDelegate.swift in Sources */,
 			);

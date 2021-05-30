@@ -11,7 +11,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
   
   static let reuseId = "FeedCollectionCell"
   
-  var cellImage: Data? {
+  var cellImage: Data? = nil {
     didSet {
       if let cellImage = cellImage {
         imageContainer.image = UIImage(data: cellImage)
@@ -27,6 +27,14 @@ class FeedCollectionViewCell: UICollectionViewCell {
     return view
   }()
   
+  var hasImages: Bool {
+    get {
+      return imageContainer.image != nil || cellImage != nil
+    }
+  }
+  
+  // MARK: - Initializers
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     
@@ -38,6 +46,16 @@ class FeedCollectionViewCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
+  // MARK: - View Lifecycle
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    if hasImages {
+      resetImage()
+    }
+  }
+  
   // MARK: - Configurations
   
   fileprivate func configureContentView() {
@@ -46,6 +64,13 @@ class FeedCollectionViewCell: UICollectionViewCell {
     contentView.layer.masksToBounds = true
     contentView.layer.borderWidth = 2
     contentView.layer.borderColor = UIColor.systemGray2.withAlphaComponent(0.2).cgColor
+  }
+  
+  // MARK: - Helpers
+  
+  fileprivate func resetImage() {
+    cellImage = nil
+    imageContainer.image = nil
   }
   
 }

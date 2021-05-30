@@ -9,10 +9,10 @@ import Foundation
 
 class DataManager {
   
-  let endpoint = "https://www.notenough.science/vintage-football-photos/"
-  let totalImageCount = 199
+  let endpoint = "https://www.notenough.science/footygram/"
+  let totalImageCount = 198
   
-  func getImage(id: Int) -> Data? {
+  func fetchImage(id: Int) -> Data? {
     guard let url = URL(string: "\(endpoint)/\(String(id)).jpeg") else { return nil }
     
     do {
@@ -23,5 +23,11 @@ class DataManager {
       return nil
     }
   }
+  
+  func saveImage() {}
+  
+  func getImage() {}
+  
+  func deleteImage() {}
   
 }
