@@ -75,6 +75,24 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     return CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
   }
   
+  override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    // TODO: This hide animation could be better
+    let trueOffset = scrollView.contentOffset.y + 127.0
+    
+    // print("Beginning offset:", scrollView.contentOffset.y)
+    // print("Beginning trueOffset:", trueOffset)
+    
+    if trueOffset > 100 {
+      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
+        self?.headerView.transform = CGAffineTransform(translationX: 0, y: -trueOffset)
+      }
+    } else if trueOffset < 100 {
+      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
+        self?.headerView.transform = .identity
+      }
+    }
+  }
+  
 }
 
 // MARK: - Layout
