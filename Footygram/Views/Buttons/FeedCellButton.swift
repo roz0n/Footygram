@@ -31,10 +31,10 @@ class FeedCellButton: UIView {
   }()
   
   let favoriteIcon: UIImageView = {
-    let config = UIImage.SymbolConfiguration(pointSize: 16, weight: .bold)
+    let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .bold)
     let image = UIImage(systemName: "star.fill", withConfiguration: config)
     let view = UIImageView(image: image)
-    view.tintColor = inactiveColor
+    view.tintColor = FeedCellButton.inactiveColor
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()

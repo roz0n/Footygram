@@ -112,13 +112,13 @@ fileprivate extension FeedCollectionViewCell {
   }
   
   func layoutFavoritesButton() {
+    let padding: CGFloat = 14
+
     contentView.addSubview(favoriteButton)
     
     NSLayoutConstraint.activate([
-      favoriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14),
-      favoriteButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -14),
-      favoriteButton.heightAnchor.constraint(equalToConstant: 50),
-      favoriteButton.widthAnchor.constraint(equalToConstant: 50)
+      favoriteButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+      favoriteButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
     ])
   }
   
