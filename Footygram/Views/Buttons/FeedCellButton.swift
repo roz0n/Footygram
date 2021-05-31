@@ -70,16 +70,19 @@ class FeedCellButton: UIView {
   
   func handleFavorite() {
     if isFavorite {
-      buttonContainer.backgroundColor = UIColor.systemGray5.withAlphaComponent(0.9)
+      buttonContainer.backgroundColor = .systemYellow
+      buttonContainer.layer.borderColor = UIColor.systemYellow.cgColor
       
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
         self?.favoriteIcon.transform = CGAffineTransform(scaleX: 5, y: 5)
+        self?.favoriteIcon.transform = CGAffineTransform(rotationAngle: (45 * CGFloat.pi) / 45)
         self?.favoriteIcon.transform = .identity
       }
       
-      favoriteIcon.tintColor = .systemYellow
+      favoriteIcon.tintColor = .systemBackground
     } else if !isFavorite {
       buttonContainer.backgroundColor = .clear
+      buttonContainer.layer.borderColor = FeedCellButton.inactiveColor.cgColor
 
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
         self?.favoriteIcon.transform = CGAffineTransform(scaleX: 5, y: 5)

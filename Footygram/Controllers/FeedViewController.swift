@@ -13,6 +13,8 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
   let refreshControl = UIRefreshControl()
   let dataManager = DataManager()
   
+  // MARK: - View Lifecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -33,7 +35,16 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
   
   fileprivate func configureRefreshControl() {
     refreshControl.tintColor = .green
-    collectionView.addSubview(refreshControl)
+    refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    collectionView.refreshControl = refreshControl
+  }
+  
+  // MARK: - Helpers
+  
+  @objc func refreshData() {
+    collectionView.refreshControl?.beginRefreshing()
+    collectionView.reloadData()
+    collectionView.refreshControl?.endRefreshing()
   }
   
   // MARK: - UICollectionViewDataSource

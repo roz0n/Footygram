@@ -13,6 +13,8 @@ class FeedCollectionViewCell: UICollectionViewCell {
   
   let favoriteButton = FeedCellButton()
   
+  // MARK: -
+  
   var cellImage: Data? = nil {
     didSet {
       if let cellImage = cellImage {
@@ -24,7 +26,6 @@ class FeedCollectionViewCell: UICollectionViewCell {
   let imageContainer: UIImageView = {
     let view = UIImageView()
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = .brown
     view.contentMode = .center
     return view
   }()
@@ -53,6 +54,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     
+    // TODO: Is this even needed?
     if hasImages {
       resetImage()
     }
