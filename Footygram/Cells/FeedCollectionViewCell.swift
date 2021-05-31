@@ -113,7 +113,7 @@ fileprivate extension FeedCollectionViewCell {
   
   func layoutFavoritesButton() {
     let padding: CGFloat = 14
-
+    
     contentView.addSubview(favoriteButton)
     
     NSLayoutConstraint.activate([

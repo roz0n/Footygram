@@ -93,11 +93,11 @@ class FeedViewController: UICollectionViewController, UICollectionViewDelegateFl
     // print("Beginning offset:", scrollView.contentOffset.y)
     // print("Beginning trueOffset:", trueOffset)
     
-    if trueOffset > 100 {
+    if trueOffset > 35 {
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
         self?.headerView.transform = CGAffineTransform(translationX: 0, y: -trueOffset)
       }
-    } else if trueOffset < 100 {
+    } else if trueOffset < 35 {
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
         self?.headerView.transform = .identity
       }

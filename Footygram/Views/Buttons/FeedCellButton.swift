@@ -83,7 +83,7 @@ class FeedCellButton: UIView {
     } else if !isFavorite {
       buttonContainer.backgroundColor = .clear
       buttonContainer.layer.borderColor = FeedCellButton.inactiveColor.cgColor
-
+      
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
         self?.favoriteIcon.transform = CGAffineTransform(scaleX: 5, y: 5)
         self?.favoriteIcon.transform = .identity
@@ -102,7 +102,7 @@ class FeedCellButton: UIView {
 // MARK: - Layout
 
 fileprivate extension FeedCellButton {
-
+  
   func layoutButton() {
     addSubview(buttonContainer)
     buttonContainer.fillOther(view: self)
