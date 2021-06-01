@@ -70,8 +70,8 @@ class FeedCellButton: UIView {
   
   func handleFavorite() {
     if isFavorite {
-      buttonContainer.backgroundColor = .systemYellow
-      buttonContainer.layer.borderColor = UIColor.systemYellow.cgColor
+      buttonContainer.backgroundColor = .systemGreen
+      buttonContainer.layer.borderColor = UIColor.systemGreen.cgColor
       
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut) { [weak self] in
         self?.favoriteIcon.transform = CGAffineTransform(scaleX: 5, y: 5)
